@@ -29,6 +29,9 @@ class Cars
     #[ORM\Column(type: Types::TEXT)]
     private ?string $characteristic = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cars')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Cars
     public function setCharacteristic(string $characteristic): static
     {
         $this->characteristic = $characteristic;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
