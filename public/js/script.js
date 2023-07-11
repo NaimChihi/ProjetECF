@@ -8,8 +8,9 @@ if (window.scrollY > 50) {
     navbar.style.heignt = "90px";
 }
 
-  //image
-let scrollvalue =
+
+//image
+let scrollvalue = 
     (window.scrollY + window.innerHeight) / document.body.offsetHeight;
 if (scrollvalue > 0.45) {
     imgImprovise.style.opacity = 1;
