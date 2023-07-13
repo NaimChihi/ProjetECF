@@ -3,6 +3,9 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
+</br>
+</br>
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -21,7 +24,7 @@
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
+        value="{{ csrf_token('authenticate') }}"
     >
 
     {#
@@ -39,4 +42,5 @@
         S'identifier
     </button>
 </form>
+
 {% endblock %}

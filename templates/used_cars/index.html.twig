@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures d'occasion{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/cars.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+
+
+{{ include ('used_cars.html.twig') }}
+{{ include ('footer.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('used_cars.js') }}" defer></script>
+{% endblock %}
+

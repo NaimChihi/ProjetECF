@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\CarsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;
+
 
 #[ORM\Entity(repositoryClass: CarsRepository::class)]
 class Cars
@@ -30,6 +32,7 @@ class Cars
     private ?string $characteristic = null;
 
     #[ORM\ManyToOne(inversedBy: 'cars')]
+    #[Ignore]
     private ?User $user = null;
 
     public function getId(): ?int
