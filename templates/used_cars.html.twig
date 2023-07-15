@@ -5,28 +5,104 @@
 </br>
     {% block title %}{% endblock %}
 
+
 {% block body %}
 <div class="container">
-    <h1>Annonces de ventes de voitures</h1></br>
+    <h1>Annonces de ventes de voitures</h1>
+    <h4><p>Venez les voir au garage &#9759;</p></h4></br>
     
     <div class="row">
-        {% for car in cars %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="{{ asset('assets/voitures/' ~ car.id ~ '.jpeg') }}" class="card-img-top car-image" alt="{{ car.Brand }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ car.Brand }}</h5>
-                    <p class="card-text">{{ car.price }} €</p>
-                    <p class="card-text">{{ car.km }} km</p>
-                    <p class="card-text">{{ car.year|date('Y') }}</p>
+        <div class="col-md-12">
+            <form id="filterForm" class="form-inline">
+                <div class="form-group mr-3">
+                    <label for="brandFilter">Marque</label>
+                    <select class="form-control" id="brandFilter" name="brand">
+                        <option value="">Toutes les marques</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Renault">Renault</option>
+                        <option value="Citröen">Citröen</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Mercedes-Benz">Mercedes</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Audi">Audi</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Seat">Seat</option>
+                        <option value="Skoda">Skoda</option>
+                    </select>
                 </div>
+                <div class="form-group mr-3">
+                    <label for="priceFilter">Prix</label>
+                    <input type="number" class="form-control" id="priceFilter" name="price">
+                </div>
+                <div class="form-group mr-3">
+                    <label for="yearFilter">Année</label>
+                    <input type="number" class="form-control" id="yearFilter" name="year">
+                </div>
+                <div class="form-group mr-3">
+                    <label for="kmFilter">Kilométrage</label>
+                    <input type="number" class="form-control" id="kmFilter" name="km">
+                </div>
+                <button type="submit" class="btn btn-primary">Filtrer</button>
+            </form>
+        </div>
+    </div>
+</div></br>
+<div class="row md-2 justify-content-center ">
+        <div class="col-md-11 ">
+            <div id="filteredResults">
+                <!-- Ici seront affichées les annonces de voitures filtrées -->
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
 
+{% block javascripts %}
+<script>
+    // Code JavaScript pour gérer la soumission du formulaire et la requête AJAX de filtrage des annonces
+    const form = document.getElementById('filterForm');
+    const resultsContainer = document.getElementById('filteredResults');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        // Effectuer une requête AJAX pour filtrer les annonces de voitures
+        fetch('{{ path('app_cars_filter') }}', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Générer le HTML des annonces filtrées
+            let html = '';
+            for (const car of data) {
+                html += `
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ asset('assets/voitures/') }}${car.id}.jpeg" class="card-img-top car-image" alt="${car.Brand}">
+                            <div class="card-body">
+                                <h5 class="card-title">${car.Brand}</h5>
+                                <p class="card-text">${car.characteristic}</p>
+                                <p class="card-text">${car.price} €</p>
+                                <p class="card-text">${car.km} km</p>
+                                <p class="card-text">${car.year}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            resultsContainer.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Une erreur s\'est produite :', error);
+        });
+    });
+</script>
 {% endblock %}
+{% endblock %}
+
 
 
 

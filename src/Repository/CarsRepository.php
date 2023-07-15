@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Repository;
 
 use App\Entity\Cars;
@@ -8,11 +10,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Cars>
- *
- * @method Cars|null find($id, $lockMode = null, $lockVersion = null)
- * @method Cars|null findOneBy(array $criteria, array $orderBy = null)
- * @method Cars[]    findAll()
- * @method Cars[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class CarsRepository extends ServiceEntityRepository
 {
@@ -21,23 +18,38 @@ class CarsRepository extends ServiceEntityRepository
         parent::__construct($registry, Cars::class);
     }
 
-    public function save(Cars $entity, bool $flush = false): void
+    /**
+     * @param array $criteria
+     * @return Cars[]
+     */
+    public function findByCriteria(array $criteria): array
     {
-        $this->getEntityManager()->persist($entity);
+        $qb = $this->createQueryBuilder('c');
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
+        // Filtrer les voitures en fonction des critères
+        if (!empty($criteria['Brand'])) {
+            $qb->andWhere('c.Brand = :brand')
+                ->setParameter('brand', $criteria['Brand']);
         }
-    }
 
-    public function remove(Cars $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
+        if (!empty($criteria['price'])) {
+            $qb->andWhere('c.price <= :price')
+                ->setParameter('price', $criteria['price']);
         }
+
+        if (!empty($criteria['year'])) {
+            $qb->andWhere('c.year >= :year')
+                ->setParameter('year', $criteria['year']);
+        }
+
+        if (!empty($criteria['km'])) {
+            $qb->andWhere('c.km <= :km')
+                ->setParameter('km', $criteria['km']);
+        }
+
+        return $qb->getQuery()->getResult();
     }
+}
 
 //    /**
 //     * @return Cars[] Returns an array of Cars objects
@@ -63,4 +75,4 @@ class CarsRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+
