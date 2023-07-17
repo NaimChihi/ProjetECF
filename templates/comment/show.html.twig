@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comment{% endblock %}
+
+{% block body %}
+</br></br></br></br>
+<div class="container">
+    <h1>Les avis</h1>
+    <div class="card">
+    <div class="card-body">
+    <h5 class="card-title">Contenu :</h5>
+    <p class="card-text">{{ comment.content }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <strong>Créé le :</strong> {{ comment.createdAt|date('d/m/Y H:i:s') }}
+        </li>
+        <li class="list-group-item">
+        <strong>Auteur :</strong> {{ comment.user.email }}
+        </li>
+    </ul>
+</div>
+</div>
+
+
+    <a href="{{ path('app_comment_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('app_comment_edit', {'id': comment.id}) }}">Modifier</a>
+
+    
+{% endblock %}

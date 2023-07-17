@@ -38,6 +38,7 @@ class CommentRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+}
 
 //    /**
 //     * @return Comment[] Returns an array of Comment objects
@@ -63,4 +64,4 @@ class CommentRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+
