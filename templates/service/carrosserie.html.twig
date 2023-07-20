@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrosserie - {{ service.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Carrosserie - {{ service.title }}</h1>
+        <p>{{ service.content }}</p>
+        {# Ajoutez d'autres informations sur la carrosserie ici #}
+
+        <h2>Prix des réparations de carrosserie</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type de réparation</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Redressage de la carrosserie</td>
+                    <td>200€</td>
+                </tr>
+                <tr>
+                    <td>Peinture de la carrosserie</td>
+                    <td>150€</td>
+                </tr>
+                <tr>
+                    <td>Remplacement du pare-brise</td>
+                    <td>100€</td>
+                </tr>
+                <tr>
+                    <td>Réparation des impacts de grêle</td>
+                    <td>80€</td>
+                </tr>
+                <!-- Ajoutez d'autres lignes pour les autres types de réparation -->
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_service') }}" class="btn btn-secondary">Retour à la liste des services</a>
+    </div>
+{% endblock %}

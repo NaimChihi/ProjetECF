@@ -1,0 +1,48 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Entretien - {{ service.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Entretien - {{ service.title }}</h1>
+        <p>{{ service.content }}</p>
+        {# Ajoutez d'autres informations sur l'entretien ici #}
+
+        <h2>Prix des entretiens de véhicules légers</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type d'entretien</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Entretien basique</td>
+                    <td>50€</td>
+                </tr>
+                <tr>
+                    <td>Changement d'huile</td>
+                    <td>30€</td>
+                </tr>
+                <tr>
+                    <td>Remplacement du filtre à air</td>
+                    <td>20€</td>
+                </tr>
+                <tr>
+                    <td>Contrôle des freins</td>
+                    <td>40€</td>
+                </tr>
+                <tr>
+                    <td>Vidange</td>
+                    <td>50€</td>
+                </tr>
+                <!-- Ajoutez d'autres lignes pour les autres types d'entretien -->
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_service') }}" class="btn btn-secondary">Retour à la liste des services</a>
+    </div>
+    
+{% endblock %}

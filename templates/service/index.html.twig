@@ -1,37 +1,53 @@
+
 {% extends 'base.html.twig' %}
 
-{% block title %}Service index{% endblock %}
+{% block title %}Service{% endblock %}
 
 {% block body %}
-    <h1>Service index</h1>
+</br></br></br></br></br>
+<h1>Nos Prestations de Services</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for service in services %}
-            <tr>
-                <td>{{ service.id }}</td>
-                <td>{{ service.title }}</td>
-                <td>{{ service.content }}</td>
-                <td>
-                    <a href="{{ path('app_service_show', {'id': service.id}) }}">show</a>
-                    
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Entretien</h5>
+                <p class="card-text">Description de l'entretien.</p>
+                <a href="{{ path('app_service_show', {'id': 1, 'type': 'entretien'}) }}" class="btn btn-primary">Voir</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mécanique</h5>
+                <p class="card-text">Description de la mécanique.</p>
+                <a href="{{ path('app_service_show', {'id': 2, 'type': 'mecanique'}) }}" class="btn btn-primary">Voir</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Carrosserie</h5>
+                <p class="card-text">Description de la carrosserie.</p>
+                <a href="{{ path('app_service_show', {'id': 3, 'type': 'carrosserie'}) }}" class="btn btn-primary">Voir</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Ventes de voitures</h5>
+                <p class="card-text">Description des ventes de voitures.</p>
+                <a href="{{ path('app_cars') }}" class="btn btn-primary">Voir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ include ('footer.html.twig') }}
 {% endblock %}

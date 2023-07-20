@@ -10,9 +10,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
-#[Route('/admin', name: 'admin_')]
+
+/*#[Route('/admin', name: 'admin')]
 
 class AdminController extends AbstractController
 {
@@ -22,12 +24,26 @@ class AdminController extends AbstractController
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);
-    }
+    }*/
 
     /**
      * Liste des utilisateurs du site
      * 
      */
+    class AdminController extends AbstractController
+{
+    #[Route('/admin', name: 'admin_index')]
+    #[IsGranted('ROLE_ADMIN')] // Ajoutez cette annotation pour restreindre l'accès
+    public function index(): Response
+    {
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
+
+
+
+
     
     #[Route('/utilisateurs', name: 'utilisateurs')]
     public function usersList (UserRepository $users) {

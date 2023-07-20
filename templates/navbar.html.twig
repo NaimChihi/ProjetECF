@@ -1,13 +1,17 @@
 <nav id="navbar">
     <div class="nav-elements" id="nav-elements">
-        <h3><a href="#"><img src="assets/logoVP1.jpg" class="logo"></a></h3>
+        <h3><a href="{{ path('app_home') }}"><img src="{{ asset('assets/logoVP1.jpg') }}" class="logo"></a></h3>
         <ul class="nav-links">
-            <li><a href="#adapt-title">Accueil</a></li>
-            <li><a href="#improvise">Services</a></li>
-            <li><a href="#overcome">Voitures</a></li>
-            <li><a href="#register">S'enregistrer</a></li>
-            <li><a href="connexion">Connexion</a></li>
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li><a href="{{ path('app_service') }}">Services</a></li>
+            <li><a href="{{ path('app_cars') }}">Voitures</a></li>
+            <li><a href="{{ path('app_register') }}">S'enregistrer</a></li>
+            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+            
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin_index') }}">Admin</a></li>
+            {% endif %}
         </ul>
     </div>
     <div id="icons"></div>
-</nav> 
+</nav>

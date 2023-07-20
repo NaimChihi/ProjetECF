@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/service')]
 class ServiceController extends AbstractController
 {
-    #[Route('/', name: 'app_service_index', methods: ['GET'])]
+    #[Route('/', name: 'app_service', methods: ['GET'])]
     public function index(ServiceRepository $serviceRepository): Response
     {
         return $this->render('service/index.html.twig', [
@@ -23,13 +23,41 @@ class ServiceController extends AbstractController
 
     
 
-    #[Route('/{id}', name: 'app_service_show', methods: ['GET'])]
+    /*#[Route('/{id}', name: 'app_service_show', methods: ['GET'])]
     public function show(Service $service): Response
     {
         return $this->render('service/show.html.twig', [
             'service' => $service,
         ]);
-    }
+    }*/
+    
+    
 
+
+#[Route('/{id}/{type}', name: 'app_service_show', methods: ['GET'])]
+    public function show(Service $service, string $type): Response
+    {
+        $templateName = 'service/view_service.html.twig';
+
+        // Vérifiez la valeur du paramètre 'type' pour choisir le template approprié
+        switch ($type) {
+            case 'entretien':
+                $templateName = 'service/entretien.html.twig';
+                break;
+            case 'mecanique':
+                $templateName = 'service/mecanique.html.twig';
+                break;
+            case 'carrosserie':
+                $templateName = 'service/carrosserie.html.twig';
+                break;
+            // Ajoutez d'autres cas pour les différents types de service
+            default:
+                break;
+        }
+
+        return $this->render($templateName, [
+            'service' => $service,
+        ]);
+    }
 
 }

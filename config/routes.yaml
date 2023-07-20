@@ -13,3 +13,9 @@ app_cars_filter:
     path: /cars/filter
     controller: App\Controller\UsedCarsController::filterCars
     methods: [POST]
+
+admin_index:
+    path: /admin
+    controller: App\Controller\AdminController::index
+    methods: [GET]
+

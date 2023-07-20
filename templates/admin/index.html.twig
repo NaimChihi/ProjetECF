@@ -5,17 +5,17 @@
 {% block body %}
 
 <style>
-    .example-wrapper {margin: auto 1rem;; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; position: relative; top: 200px; }
+    .example-wrapper {margin: auto 1rem; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; position: relative; top: 200px; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
+    <h1>Bienvenue dans l'Espace Administration! ✅</h1></br>
+    
     <ul>
-        <li>Your controller at <code><a href="{{ '/Users/naim/Documents/SF6/ProjetECF/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/naim/Documents/SF6/ProjetECF/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
+        <li><a href="{{ path('app_admin_service_index') }}" class="btn btn-primary">Accéder à la page Admin/Service</a></li></br>
+        <li><a href="{{ path('app_admin_cars_index') }}" class="btn btn-primary">Accéder à la page Admin/Cars</a></li></br>
+        <li><a href="{{ path('app_admin_comment_index') }}" class="btn btn-primary">Accéder à la page Admin/Comment</a></li></br>
     </ul>
 </div>
 {% endblock %}
