@@ -1,21 +1,34 @@
 <?php
 
-
-
 namespace App\Repository;
 
 use App\Entity\Cars;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-/**
- * @extends ServiceEntityRepository<Cars>
- */
 class CarsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Cars::class);
+    }
+
+    // Ajoutez la méthode save pour persister une entité Car
+    public function save(Cars $car, bool $flush = true)
+    {
+        $this->_em->persist($car);
+        if ($flush) {
+            $this->_em->flush();
+        }
+    }
+
+    // Ajoutez également la méthode remove pour supprimer une entité Car
+    public function remove(Cars $car, bool $flush = true)
+    {
+        $this->_em->remove($car);
+        if ($flush) {
+            $this->_em->flush();
+        }
     }
 
     /**
@@ -50,29 +63,3 @@ class CarsRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 }
-
-//    /**
-//     * @return Cars[] Returns an array of Cars objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Cars
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
-

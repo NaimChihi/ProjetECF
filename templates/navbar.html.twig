@@ -7,11 +7,17 @@
             <li><a href="{{ path('app_cars') }}">Voitures</a></li>
             <li><a href="{{ path('app_register') }}">S'enregistrer</a></li>
             <li><a href="{{ path('app_login') }}">Connexion</a></li>
-            
             {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin_index') }}">Admin</a></li>
             {% endif %}
         </ul>
     </div>
-    <div id="icons"></div>
+    <div id="hamb" style="float: right;"></div>
 </nav>
+
+
+{% block javascripts %}
+<script>
+
+</script>
+{% endblock %}
