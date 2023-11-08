@@ -1,17 +1,94 @@
 <nav id="navbar">
     <div class="nav-elements" id="nav-elements">
-        <h3><a href="{{ path('app_home') }}"><img src="{{ asset('assets/logoVP1.jpg') }}" class="logo"></a></h3>
+        <h3><a href="{{ path('app_home') }}"><img src="{{ asset('assets/logoVP1.jpg') }}" class="logo" alt="Logo"></a></h3>
+        <div id="menu-toggle" class="menu-toggle" style="color: white; cursor: pointer; font-size: 24px;">
+  <i class="fas fa-bars"></i>
+</div>
+
         <ul class="nav-links">
             <li><a href="{{ path('app_home') }}">Accueil</a></li>
             <li><a href="{{ path('app_service') }}">Services</a></li>
             <li><a href="{{ path('app_cars') }}">Voitures</a></li>
             <li><a href="{{ path('app_register') }}">S'enregistrer</a></li>
             <li><a href="{{ path('app_login') }}">Connexion</a></li>
-            
             {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin_index') }}">Admin</a></li>
             {% endif %}
         </ul>
     </div>
-    <div id="icons"></div>
+    <div class="menu-dropdown" id="menu-dropdown" style="display: none; position: absolute; top: 50px; right: 10px; background: #ffffff; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+    <ul class="dropdown-links" style="list-style: none; padding: 0;">
+        <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+            <a href="{{ path('app_home') }}" style="text-decoration: none; color: #333; display: block;">Accueil</a>
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+            <a href="{{ path('app_service') }}" style="text-decoration: none; color: #333; display: block;">Services</a>
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+            <a href="{{ path('app_cars') }}" style="text-decoration: none; color: #333; display: block;">Voitures</a>
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+            <a href="{{ path('app_register') }}" style="text-decoration: none; color: #333; display: block;">S'enregistrer</a>
+        </li>
+        <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+            <a href="{{ path('app_login') }}" style="text-decoration: none; color: #333; display: block;">Connexion</a>
+        </li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <li style="padding: 10px;">
+                <a href="{{ path('admin_index') }}" style="text-decoration: none; color: #333; display: block;">Admin</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+
 </nav>
+
+
+
+
+
+{% block javascripts %}
+<script>
+// Sélectionnez les éléments du menu déroulant et du bouton de menu
+const menuDropdown = document.getElementById("menu-dropdown");
+const menuToggle = document.getElementById("menu-toggle");
+
+// Masquez le menu-dropdown au chargement de la page
+menuDropdown.style.display = "none";
+
+// Écoutez le clic sur le menu-toggle
+menuToggle.addEventListener("click", () => {
+    // Inversez la visibilité du menu-dropdown au clic
+    if (menuDropdown.style.display === "none" || menuDropdown.style.display === "") {
+        menuDropdown.style.display = "block";
+    } else {
+        menuDropdown.style.display = "none";
+    }
+});
+
+// Écoutez le redimensionnement de la fenêtre pour gérer l'affichage du menu-toggle
+window.addEventListener("resize", () => {
+    if (window.innerWidth < 800) {
+        // En dessous de 800 pixels, affichez le menu-toggle
+        menuToggle.style.display = "block";
+    } else {
+        // Au-dessus de 800 pixels, masquez le menu-toggle
+        menuToggle.style.display = "none";
+        // Masquez également le menu-dropdown
+        menuDropdown.style.display = "none";
+    }
+});
+
+// Appelez l'événement de redimensionnement lors du chargement de la page
+window.dispatchEvent(new Event("resize"));
+
+
+
+</script>
+{% endblock %}
+
+
+
+
+
+

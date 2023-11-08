@@ -1,258 +1,301 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat Alternates", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 h2 {
-    margin: 0 0 20px 20px;
-    font-size: 2rem;
+  margin: 0 0 20px 20px;
+  font-size: 2rem;
 }
 body {
-    background:white;
+  background: white;
 }
-
-
-.navbar {
-    background-color: #000130;
-}
-
-
-
-
-
 
 .logo {
-    width: 110px;
-    height: 75px;
-    border-radius: 15%;
-    position:fixed;
-    left: 10px;
-    top: 5px;
-    filter: drop-shadow(0 0 0.75rem rgb(217, 3, 46));
-    
+  width: 110px;
+  height: 75px;
+  border-radius: 15%;
+  position: fixed;
+  left: 10px;
+  top: 5px;
+  filter: drop-shadow(0 0 0.75rem rgb(217, 3, 46));
 }
-
-
-
 nav {
-    width: 100%;
-    background:#000130;
-    position: fixed;
-    z-index: 1000;
-    height: 90px;
-    transition: 0.2s ease;
-    
-}
-.nav-elements {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    width: 90%;
-    height: 100%;
-    font-size:calc(0.5rem + 1vw);
-}
-.nav-elements a {
-    color:white;
-    text-decoration: none;
-}
-.nav-elements a:visited {
-    color: rgb(217, 3, 46);
-}
-.nav-elements h2 {
-    transition: all 0.3s ease-in-out;
-}
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    
-}
-.nav-links,
-h3 {
-    flex: 1;
-    color:(#217,3,46);
+  background: rgb(
+    1,
+    27,
+    49
+  ); /* Changez cette couleur en bleu ou la couleur de votre choix */
+  display: flex;
+  justify-content: center; /* Aligner au milieu horizontalement */
+  align-items: center; /* Centrer verticalement */
+  height: 90px;
+  width: 100%;
+  box-shadow: 0 0 3px #333;
+  position: fixed;
+  z-index: 1000;
+  height: 90px;
+  transition: 0.2s ease;
 }
 
-#icons {
-    cursor: pointer;
-    display: none;
-}
-
-
-.nav-links li {
-    padding: 1rem;
-    transition: all 0.2s ease;
-}
-.nav-elements h2:hover {
-    font-weight: 100;
-}
-.nav-links li:hover {
-    transform: translateX(5px);
-    font-weight: bold;
-}
 p {
-    text-align: justify;
+  text-align: justify;
 }
 p::first-letter {
-    font-size: 1.5rem;
-    color: rgb(217, 3, 46);
+  font-size: 1.5rem;
+  color: rgb(217, 3, 46);
 }
 .adapt {
-    display: flex;
-    padding: 6rem 1rem 1rem 0;
-    margin-bottom: 3rem;
-    top: 10px;
+  display: flex;
+  padding: 6rem 1rem 1rem 0;
+  margin-bottom: 3rem;
+  top: 10px;
 }
 .dummy-adapt {
-    padding: 2rem 2rem 2rem 0;
+  padding: 2rem 2rem 2rem 0;
 }
 .adapt img {
-    width: 50%;
+  width: 50%;
 }
 .improvise {
-    padding: 1rem;
-    margin-bottom: 3rem;
-    display: flex;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
 }
 .improvise h1 {
-    text-align: right;
-    padding-right: 17%;
+  text-align: right;
+  padding-right: 17%;
 }
 #imgImprovise {
-    width: 60%;
-    padding: 2rem;
-    opacity: 0;
-    transform: translateX(-200px);
-    transition: 1s ease-in;
+  width: 60%;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(-200px);
+  transition: 1s ease-in;
 }
 .overcome {
-    padding: 2rem;
-    background: rgb(217, 3, 46);
-    text-align: center;
-    
+  padding: 2rem;
+  background: rgb(217, 3, 46);
+  text-align: center;
 }
 .overcome h2 {
-    text-align:center;
-    }
+  text-align: center;
+}
 
 .overcome p {
-    text-align: center;
+  text-align: center;
 }
 .overcome img {
-    width: 90%;
-    left: 20px;
-
-
+  width: 90%;
+  left: 20px;
 }
 
 @media screen and (min-width: 1000px) {
-main {
+  main {
     width: 75%;
     margin: 0 auto;
-}
-.nav-elements {
+  }
+  .nav-elements {
     width: 75%;
-}
+  }
 }
 @media screen and (max-width: 999px) {
-main {
+  main {
     padding: 0 2rem;
-}
+  }
 }
 
 .pop-up {
-    position: fixed;
-    right: 1rem;
-    bottom: 2rem;
-    height: 250px;
-    width: 520px;
-    text-align: center;
-    background: linear-gradient(90deg, #032d52, rgb(1, 27, 49));
-    border-radius: 76% 24% 90% 10% / 20% 85% 15% 80%;
-    box-shadow: 0 5px 10px black;
-    opacity: 0;
-    transform: translateX(400px);
-    transition: 1s ease-out;
+  position: fixed;
+  right: 1rem;
+  bottom: 2rem;
+  height: 250px;
+  width: 520px;
+  text-align: center;
+  background: linear-gradient(90deg, #032d52, rgb(1, 27, 49));
+  border-radius: 76% 24% 90% 10% / 20% 85% 15% 80%;
+  box-shadow: 0 5px 10px black;
+  opacity: 0;
+  transform: translateX(400px);
+  transition: 1s ease-out;
 }
 .pop-up-container {
-    width: 100%;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -45%);
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -45%);
 }
 .pop-up-container h3 {
-    color: white;
-    margin: 1rem;
-    font-size: 1.5rem;
+  color: white;
+  margin: 1rem;
+  font-size: 1.5rem;
 }
 .button-container input {
-    border: 1px solid #333;
-    padding: 1rem 2rem;
-    border-radius: 15px;
-    box-shadow: 1px 2px 0 black;
-    outline: none;
-    font-size: 1.2rem;
-    transition: 0.5s;
+  border: 1px solid #333;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 1px 2px 0 black;
+  outline: none;
+  font-size: 1.2rem;
+  transition: 0.5s;
 }
 .button-container input:focus {
-    background: rgb(211, 242, 251);
+  background: rgb(211, 242, 251);
 }
 
 .button-container button {
-    border-radius: 15px;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border: 1px solid #333;
-    outline: none;
-    cursor: pointer;
-    background: white;
-    box-shadow: 1px 2px 0 black;
-    transition: 0.3s;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: 1px solid #333;
+  outline: none;
+  cursor: pointer;
+  background: white;
+  box-shadow: 1px 2px 0 black;
+  transition: 0.3s;
 }
 .button-container button:hover {
-    background: rgb(211, 242, 251);
-    transform: translateX(-1px);
+  background: rgb(211, 242, 251);
+  transform: translateX(-1px);
 }
 .button-container button:active {
-    transform: scale(0.96);
+  transform: scale(0.96);
 }
 .fa-times-circle {
-    position: absolute;
-    left: 2rem;
-    top: 0.7rem;
-    font-size: 1.7rem;
-    color: white;
-    text-shadow: 2px 2px 0px #333;
-    cursor: pointer;
-    transition: 0.3s;
+  position: absolute;
+  left: 2rem;
+  top: 0.7rem;
+  font-size: 1.7rem;
+  color: white;
+  text-shadow: 2px 2px 0px #333;
+  cursor: pointer;
+  transition: 0.3s;
 }
 .fa-times-circle:hover {
-    color: rgb(211, 242, 251);
-    transform: translateX(-1px);
+  color: rgb(211, 242, 251);
+  transform: translateX(-1px);
 }
 .fa-times-circle:active {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
-@media screen and (max-width:850px) {
-    .nav-links {
-        display: none;
-    }
-    .adapt img {
-        display: none;
-    }
-    #imgImprovise {
-        display: none;
-    }
-    
+@media screen and (max-width: 850px) {
+  .nav-links {
+    display: none;
+  }
+  .adapt img {
+    display: none;
+  }
+  #imgImprovise {
+    display: none;
+  }
 }
 
+/* Cacher le menu-dropdown par défaut */
+.menu-dropdown {
+  display: none;
+}
 
+/* Styles pour le menu-toggle */
+#menu-toggle {
+  color: black;
+  display: none; /* Cacher par défaut */
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Styles pour le menu principal (affiché au-dessus de 800px) */
+@media (min-width: 730px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Styles pour le menu-dropdown (affiché en dessous de 800px) */
+@media (max-width: 730px) {
+  .menu-dropdown {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block; /* Afficher le menu-toggle */
+  }
+}
+
+/* Styles pour le menu-dropdown */
+.menu-dropdown {
+  position: absolute;
+  top: 0;
+  right: 0; /* Ajustez "right" à "0" pour le positionner à droite */
+  background: black;
+  color: white;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1;
+}
+
+/* Styles pour les liens du menu-dropdown */
+.dropdown-links {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-links li {
+  margin: 5px 0;
+}
+
+.dropdown-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-links a:hover {
+  color: #007bff;
+}
+
+/* Centrer verticalement les liens de navigation et les aligner au milieu */
+.nav-links {
+  display: flex;
+  justify-content: flex-end; /* Aligner au milieu horizontalement */
+  align-items: center; /* Centrer verticalement */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Rendre les liens de navigation plus gras */
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600; /* Rendre les liens plus gras (vous pouvez ajuster la valeur selon vos préférences) */
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: rgb(217, 3, 46);
+  background-color: #f0f0f0;
+}
+
+/* Positionnement initial à gauche */
+.nav-elements {
+  margin-left: auto;
+}

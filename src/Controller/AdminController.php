@@ -14,26 +14,11 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
 
-/*#[Route('/admin', name: 'admin')]
 
-class AdminController extends AbstractController
-{
-    #[Route('/', name: 'index')]
-    public function index(): Response
-    {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
-        ]);
-    }*/
-
-    /**
-     * Liste des utilisateurs du site
-     * 
-     */
     class AdminController extends AbstractController
 {
     #[Route('/admin', name: 'admin_index')]
-    #[IsGranted('ROLE_ADMIN')] // Ajoutez cette annotation pour restreindre l'accès
+    #[IsGranted('ROLE_ADMIN')] // Restreins l'accès
     public function index(): Response
     {
         return $this->render('admin/index.html.twig', [

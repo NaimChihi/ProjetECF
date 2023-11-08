@@ -2,46 +2,79 @@
 
 
 <main>
-<div class="adapt" id="adapt">
+  <div class="adapt" id="adapt">
     <div class="dummy-adapt">
-        <h2 id="adapt-title">Entretien</h2>
-        <p><b>Bienvenue au Garage Automobile Vincent Parrot situé sur la commune de Toulouse.</b></p></br>
-<p>Fort de nos 15 années d'expérience, nous sommes en mesure de prendre en charge votre véhicule à l'atelier ou chez vous pour l'entretien, les vidanges, la recherche et la réparation de panne mécaniques et électroniques.
-Nous proposons une gamme de pièces de rechange multimarques pour l'ensemble des interventions d'entretien courant telles que:
-La vidange, le freinage, l'échappement, les pneumatiques ect..</p></br>
-<p>Pour l'entretien de votre véhicule, rendez vous au garageVParrot.</p>
-
-</div>
+      <h2 id="adapt-title">Entretien</h2>
+      <p><b>Bienvenue au Garage Automobile Vincent Parrot situé sur la commune de Toulouse.</b></p>
+      <p>Fort de nos 15 années d'expérience, nous sommes en mesure de prendre en charge votre véhicule à l'atelier ou chez vous pour l'entretien, les vidanges, la recherche et la réparation de pannes mécaniques et électroniques. Nous proposons une gamme de pièces de rechange multimarques pour l'ensemble des interventions d'entretien courant telles que : La vidange, le freinage, l'échappement, les pneumatiques, etc.</p>
+      <p>Pour l'entretien de votre véhicule, rendez-vous au Garage Auto VParrot.</p>
+    </div>
     <img src="assets/méca.jpg" alt="">
-</div>
+  </div>
 
-<div class="improvise" id="improvise">
+  <div class="improvise" id="improvise">
     <img src="assets/rp.jpeg" alt="" id="imgImprovise">
     <div>
-        <h2><b>Réparations</b></h2>
-        
-        <p><b>Mécanique</p> et <p>Carrosserie </b></p></br>
-        Grâce à notre ancienneté dans le métier, nous avons pu acquérir le savoir-faire et les compétences nécessaires pour répondre efficacement aux besoins de nos clients.<br> Réactifs, nous sommes en mesure d’assurer une intervention rapide, tout en garantissant des prestations de qualité.</br> Le Garage Auto VParrot s’occupe de toute réparations mécanique et de la carrosserie-peinture de toutes les voitures et véhicules utilitaires légers, quelle que soit leur marque.<br> Nous prenons en charge les démarches auprès des assureurs et toutes nos réparations sont garanties 4 ans dans tout le réseau du Garage Auto VParrot.</br> 
-        Confiez-nous votre véhicule en toute confiance, nous lui rendrons sa brillance d’origine !
-
+      <h2><b>Réparations</b></h2>
+      <p><b>Mécanique</b> et <b>Carrosserie</b></p>
+      <p>Grâce à notre ancienneté dans le métier, nous avons pu acquérir le savoir-faire et les compétences nécessaires pour répondre efficacement aux besoins de nos clients. Réactifs, nous sommes en mesure d’assurer une intervention rapide, tout en garantissant des prestations de qualité. Le Garage Auto VParrot s’occupe de toutes réparations mécaniques et de la carrosserie-peinture de toutes les voitures et véhicules utilitaires légers, quelle que soit leur marque. Nous prenons en charge les démarches auprès des assureurs et toutes nos réparations sont garanties 4 ans dans tout le réseau du Garage Auto VParrot. Confiez-nous votre véhicule en toute confiance, nous lui rendrons sa brillance d’origine !
+      </p>
     </div>
-</div>
-    <div class="overcome" id="overcome">
+  </div>
+
+  <div class="overcome" id="overcome">
     <h2><strong>Nos voitures d'occasions</strong></h2>
-    <h3>Notre garage vous propose aussi une gamme de voitures d'occasions à prix défiant toute concurrence.<br>Faites nous confiance et roulez en toute sécurité &#9881; &#9745;</h3>
+    <h3>Notre garage vous propose aussi une gamme de voitures d'occasions à prix défiant toute concurrence. Faites-nous confiance et roulez en toute sécurité &#9881; &#9745;</h3>
     <img src="assets/vv.jpeg" alt="">
-    </div>
-
+  </div>
 </main>
 
 <div class="pop-up" id="popup">
-    <div class="pop-up-container">
-    <h3>Nous Contacter <br />Envoyez nous un e-mail ! &#9996;</h3>
+  <div class="pop-up-container">
+    <h3>Nous Contacter <br />Envoyez-nous un e-mail ! &#9996;</h3>
     <div class="button-container">
-        <input type="email" placeholder="please enter you email">
-        <button><a href="{{ path('app_contact')}}">Soumettre</a></button>
-</div>
-    <i class="far fa-times-circle" id="closeBtn"></i>
+      <input type="email" placeholder="Veuillez entrer votre e-mail">
+      <button><a href="{{ path('app_contact')}}">Soumettre</a></button>
     </div>
+    <i class="far fa-times-circle" id="closeBtn"></i>
+  </div>
 </div>
-</body>
+
+
+{% block javascripts %}
+<script>
+
+let playOnce = true;
+
+window.addEventListener('scroll', () => {
+  // Navbar effect
+  if (window.scrollY > 50) {
+    navbar.style.height = "45px";
+  } else {
+    navbar.style.height = "90px";
+  }
+
+let scrollValue = 
+(window.scrollY + window.innerHeight) / document.body.offsetHeight;
+  //Image
+if (scrollValue > 0.40) {
+  imgImprovise.style.opacity = 1;
+  imgImprovise.style.transform = "none";
+}
+
+// Popup
+if (scrollValue > 0.85 && playOnce) {
+  popup.style.opacity = 1;
+  popup.style.transform = "none";
+  playOnce = false;
+}
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.style.opacity = 0;
+  popup.style.transform = "translateX(500px)";
+});
+
+</script>
+{% endblock %}
+

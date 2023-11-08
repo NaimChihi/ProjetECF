@@ -28,10 +28,6 @@ class ContactController extends AbstractController
             $email = (new Email())
             ->from($address)
             ->to('admin@admin.com')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
             ->subject($subject)
             ->html($content);
 
