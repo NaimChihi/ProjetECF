@@ -205,29 +205,33 @@ p::first-letter {
 
 /* Styles pour le menu-toggle */
 #menu-toggle {
-  color: black;
+  color: white;
   display: none; /* Cacher par défaut */
   cursor: pointer;
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 20px;
 }
 
 /* Styles pour le menu principal (affiché au-dessus de 800px) */
-@media (min-width: 730px) {
-  .nav-links {
-    display: none;
+@media (min-width: 830px) {
+  .nav-links li {
+    display: block;
   }
 }
 
 /* Styles pour le menu-dropdown (affiché en dessous de 800px) */
-@media (max-width: 730px) {
+@media (max-width: 830px) {
   .menu-dropdown {
     display: none;
   }
 
   .menu-toggle {
     display: block; /* Afficher le menu-toggle */
+  }
+
+  .nav-links li {
+    display: none;
   }
 }
 
@@ -262,7 +266,7 @@ p::first-letter {
 }
 
 .dropdown-links a:hover {
-  color: #007bff;
+  color: rgb(217, 3, 46);
 }
 
 /* Centrer verticalement les liens de navigation et les aligner au milieu */

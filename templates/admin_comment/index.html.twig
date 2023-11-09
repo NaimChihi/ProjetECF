@@ -3,13 +3,14 @@
 {% block title %}Comment index{% endblock %}
 
 {% block body %}
-    <h1>Comment index</h1>
+</br></br></br></br></br>
+    <h1>Liste des commentaires</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Content</th>
+                <th>Contenu</th>
                 <th>CreatedAt</th>
                 <th>actions</th>
             </tr>
@@ -27,11 +28,12 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Rien trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_comment_new') }}">Create new</a>
+    <a href="{{ path('app_admin_comment_new') }}">Créer un commentaire</a>
+    <a href="{{ path('admin_index') }}">Retour au menu</a>
 {% endblock %}
