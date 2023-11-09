@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat Alternates', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 html {
   scroll-behavior: smooth;
 }
+
 h2 {
+  margin: 0 0 20px 20px;
+  font-size: 2rem;
   margin: 0 0 20px 20px;
   font-size: 2rem;
 }
 body {
+  background: white;
   background: white;
 }
 
@@ -101,10 +108,12 @@ p::first-letter {
     width: 75%;
     margin: 0 auto;
   }
+
   .nav-elements {
     width: 75%;
   }
 }
+
 @media screen and (max-width: 999px) {
   main {
     padding: 0 2rem;
@@ -132,6 +141,7 @@ p::first-letter {
   left: 50%;
   transform: translate(-50%, -45%);
 }
+
 .pop-up-container h3 {
   color: white;
   margin: 1rem;
@@ -146,6 +156,7 @@ p::first-letter {
   font-size: 1.2rem;
   transition: 0.5s;
 }
+
 .button-container input:focus {
   background: rgb(211, 242, 251);
 }
@@ -161,13 +172,16 @@ p::first-letter {
   box-shadow: 1px 2px 0 black;
   transition: 0.3s;
 }
+
 .button-container button:hover {
   background: rgb(211, 242, 251);
   transform: translateX(-1px);
 }
+
 .button-container button:active {
   transform: scale(0.96);
 }
+
 .fa-times-circle {
   position: absolute;
   left: 2rem;
@@ -178,10 +192,12 @@ p::first-letter {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .fa-times-circle:hover {
   color: rgb(211, 242, 251);
   transform: translateX(-1px);
 }
+
 .fa-times-circle:active {
   transform: scale(1.5);
 }
